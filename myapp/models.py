@@ -8,3 +8,4 @@ class Lead(models.Model):
     whatsapp_number = models.CharField(max_length=200)
     department = models.CharField(max_length=200)
     city = models.CharField(max_length=200)
+    datetime = models.DateTimeField(auto_now_add=True)

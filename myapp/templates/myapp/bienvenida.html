@@ -1,16 +1,16 @@
 {% extends 'myapp/base.html' %}
+{% load static %}
 {% block content %}
 <div class="box">
     <div class="portrait">
         <p>Gracias por tu apoyo</p>
-        <img src="https://www.elespectador.com/resizer/YLfT4Fv7ixntnsrj4skIQ0fbFnU=/657x0/cloudfront-us-east-1.images.arcpublishing.com/elespectador/J43WGEK2VRBPPC5KDU35ZMBIRM.jpg">
+        <img class="img2" src="{% static 'myapp/perfilconfondo.png' %}">
     </div>
     <div class="portrait">
         <p>Mira esta charla imperdible que tuvimos con Camilo Romero</p>
         <form action="https://youtu.be/skflWOllC-k">
-        <input class="button" type="submit" value="Ver video">
+        <input class="button" type="submit" value="Ver video" onclick="trackOutboundLink('https://youtu.be/skflWOllC-k'); return false;">
         </form>
-    </a>
 </div>
 </div>
 {% endblock %}

@@ -3,6 +3,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Yamil Lima: página web oficial</title>
     <style>
         body {background-color: #282828; text-align: center}
@@ -10,17 +11,19 @@
         .logotipo {border-radius: 50%; box-shadow: 4px 4px 8px #000000; vertical-align: middle; width: 75px}
         .isotipo {font-family: hemi; vertical-align: middle; color: #c0c0c0; font-size: 45px; text-shadow: 4px 4px 8px #000000; padding: 8px;}
         .box2 {display: inline-block; width: 100%; height: 300px; background-size: cover; background-image: url("https://www.elespectador.com/resizer/YLfT4Fv7ixntnsrj4skIQ0fbFnU=/657x0/cloudfront-us-east-1.images.arcpublishing.com/elespectador/J43WGEK2VRBPPC5KDU35ZMBIRM.jpg")}
-        .box div {vertical-align: middle; margin-top: 25px; display: inline-block; text-align: center; width: 100%;}
+        .box div {vertical-align: middle; display: inline-block; text-align: center; width: 100%;}
+        .box {margin-bottom: 100px}
         .space {max-width: 130px}
         .space2 {max-width: 230px}
         .portrait {font-size: 40px; color: #ffffff; width:100%; max-width: 500px;}
-        .registerform {margin: 20px; background-color: #282828; text-align: center; width: 100%; max-width: 400px; font-size: 25px; box-shadow: 0.5px 0.5px #ffffff inset, 4px 4px 8px #000000; border-radius: 2%; color: #ffffff}
+        .registerform {background-color: #282828; text-align: center; width: 100%; max-width: 400px; font-size: 25px; box-shadow: 0.5px 0.5px #ffffff inset, 4px 4px 8px #000000; border-radius: 2%; color: #ffffff}
         form {width: 100%;}
         input {border-radius: 8px; border: 2px solid green; color: #ffffff; font-size: 20px; width: 90%; height: 40px; background-color: #282828}
         .button {height: 55px; background-color: yellow; color: #000000; font-weight: bold; max-width: 200px; border-radius: 10px; border: none; box-shadow: 4px 4px 8px}
         .footer {text-align: center; color: #ffffff; margin-top: 50px}
         h1 {text-align: center; color: #ffffff}
-        img {width: 95%; transform: scaleX(-1); border: 3px solid green; border-radius: 10%}
+        .img1 {width: 95%; transform: scaleX(-1); border: 3px solid green; border-radius: 10%}
+        .img2 {width: 50%; border-radius: 50%;}
     </style>
     <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-111734071-2"></script>
@@ -30,6 +33,23 @@
   gtag('js', new Date());
 
   gtag('config', 'UA-111734071-2');
+</script>
+    <script>
+/**
+* Función que realiza un seguimiento de un clic en un enlace saliente en Analytics.
+* Esta función toma una cadena de URL válida como argumento y la utiliza
+* como la etiqueta del evento. Configurar el método de transporte como "beacon" permite que el hit se envíe
+* con "navigator.sendBeacon" en el navegador que lo admita.
+*/
+var trackOutboundLink = function(url) {
+  fbq('track', 'ViewContent')
+  gtag('event', 'click', {
+    'event_category': 'saliente',
+    'event_label': url,
+    'transport_type': 'beacon',
+    'event_callback': function(){document.location = url;}
+  });
+}
 </script>
 <!-- End Google Analytics code -->
     <!-- Facebook Pixel Code -->
