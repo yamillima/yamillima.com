@@ -34,23 +34,6 @@
 
   gtag('config', 'UA-111734071-2');
 </script>
-    <script>
-/**
-* Función que realiza un seguimiento de un clic en un enlace saliente en Analytics.
-* Esta función toma una cadena de URL válida como argumento y la utiliza
-* como la etiqueta del evento. Configurar el método de transporte como "beacon" permite que el hit se envíe
-* con "navigator.sendBeacon" en el navegador que lo admita.
-*/
-var trackOutboundLink = function(url) {
-  fbq('track', 'ViewContent')
-  gtag('event', 'click', {
-    'event_category': 'saliente',
-    'event_label': url,
-    'transport_type': 'beacon',
-    'event_callback': function(){document.location = url;}
-  });
-}
-</script>
 <!-- End Google Analytics code -->
     <!-- Facebook Pixel Code -->
 <script>
@@ -69,6 +52,25 @@ var trackOutboundLink = function(url) {
   src="https://www.facebook.com/tr?id=1315286428576644&ev=PageView&noscript=1"
 /></noscript>
 <!-- End Facebook Pixel Code -->
+    <!-- Tag for event button click -->
+        <script>
+/**
+* Función que realiza un seguimiento de un clic en un enlace saliente en Analytics.
+* Esta función toma una cadena de URL válida como argumento y la utiliza
+* como la etiqueta del evento. Configurar el método de transporte como "beacon" permite que el hit se envíe
+* con "navigator.sendBeacon" en el navegador que lo admita.
+*/
+var trackOutboundLink = function(url) {
+  gtag('event', 'click', {
+    'event_category': 'saliente',
+    'event_label': url,
+    'transport_type': 'beacon',
+    'event_callback': function(){document.location = url;}
+  });
+  fbq('track', 'ViewContent', {content_name: 'click en ver video'});
+}
+</script>
+    <!-- end tag -->
 </head>
 <body>
 {% block content %}
